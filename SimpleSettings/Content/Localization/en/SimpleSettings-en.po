@@ -1,0 +1,400 @@
+﻿# SimpleSettings-en English translation.
+# Fill out your copyright notice in the Description page of Project Settings.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: SimpleSettings-en\n"
+"POT-Creation-Date: 2023-12-30 01:40\n"
+"PO-Revision-Date: 2023-12-30 01:40\n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Key:	00FC8A7A4E2C6101E22829BC085D1386
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ReflectionQualityText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ReflectionQualityText.Text
+msgctxt ",00FC8A7A4E2C6101E22829BC085D1386"
+msgid "反射质量"
+msgstr "Reflection quality"
+
+#. Key:	1063AFE448230F346C5B70B01454DE38
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.FrameLimitText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.FrameLimitText.Text
+msgctxt ",1063AFE448230F346C5B70B01454DE38"
+msgid "游戏帧数限制"
+msgstr "Game frame rate limit"
+
+#. Key:	10D641174B568384EA947DBB539EA78C
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ReturnText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ReturnText.Text
+msgctxt ",10D641174B568384EA947DBB539EA78C"
+msgid "返回"
+msgstr "Return"
+
+#. Key:	1689A5D54EC8B4AF66F9D7BF12D97C95
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ShadingQualityText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ShadingQualityText.Text
+msgctxt ",1689A5D54EC8B4AF66F9D7BF12D97C95"
+msgid "着色质量"
+msgstr "Shading Settings"
+
+#. Key:	1CDD2F2F43ACF88C4AB8EFB43C990A99
+#. SourceLocation:	/SimpleSettings/Widget/WBP_CommonTipsPopup.WBP_CommonTipsPopup_C:WidgetTree.TextConfirm.Text
+#: /SimpleSettings/Widget/WBP_CommonTipsPopup.WBP_CommonTipsPopup_C:WidgetTree.TextConfirm.Text
+msgctxt ",1CDD2F2F43ACF88C4AB8EFB43C990A99"
+msgid "确认"
+msgstr "Confirm"
+
+#. Key:	1DA02500497912E8F96BF4AD0B9A4D76
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.DisplayConfirmText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.DisplayConfirmText.Text
+msgctxt ",1DA02500497912E8F96BF4AD0B9A4D76"
+msgid "确认"
+msgstr "Confirm"
+
+#. Key:	20F6C03B4EC95B1F3401039DAFF0AA13
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GameSettingTitleText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GameSettingTitleText.Text
+msgctxt ",20F6C03B4EC95B1F3401039DAFF0AA13"
+msgid "游戏相关设置"
+msgstr "Game related settings"
+
+#. Key:	23DDCB0D466A8335E2B0768B0344265E
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.TextureQualityText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.TextureQualityText.Text
+msgctxt ",23DDCB0D466A8335E2B0768B0344265E"
+msgid "纹理质量"
+msgstr "Texture Quality"
+
+#. Key:	29B557494F528DD818C90F8B88F99EE0
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.SoundSettingText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.SoundSettingText.Text
+msgctxt ",29B557494F528DD818C90F8B88F99EE0"
+msgid "声音设置"
+msgstr "Sound Settings"
+
+#. Key:	2E1CEA5542A5B6CDDD2D7CB9AAD54E9A
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.DisplaySettingText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.DisplaySettingText.Text
+msgctxt ",2E1CEA5542A5B6CDDD2D7CB9AAD54E9A"
+msgid "画面设置"
+msgstr "Screen settings"
+
+#. Key:	2E776B0747D8CC59EB7B3DA59D8FD2A3
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.VisualEffectText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.VisualEffectText.Text
+msgctxt ",2E776B0747D8CC59EB7B3DA59D8FD2A3"
+msgid "视觉效果"
+msgstr "Visual Effect"
+
+#. Key:	317839E548F3BB204BD455AA1B6895F5
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.RightText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.RightText.Text
+msgctxt ",317839E548F3BB204BD455AA1B6895F5"
+msgid "右移动    "
+msgstr "Right"
+
+#. Key:	36B1096C41E772514CACCF8FBCCB53C7
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.AdvancedSettingTitleText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.AdvancedSettingTitleText.Text
+msgctxt ",36B1096C41E772514CACCF8FBCCB53C7"
+msgid "画面高级设置"
+msgstr "Advanced screen settings"
+
+#. Key:	36F20137417EFA99A27B8E8D463627B3
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.InputSettingTitle.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.InputSettingTitle.Text
+msgctxt ",36F20137417EFA99A27B8E8D463627B3"
+msgid "键盘输入按键设置"
+msgstr "Keyborad InpuKey Settings"
+
+#. Key:	398F21B040F7266D00B418952943EF63
+#. SourceLocation:	/SimpleSettings/Widget/WBP_CommonTipsPopup.WBP_CommonTipsPopup_C:WidgetTree.TextTitle.Text
+#: /SimpleSettings/Widget/WBP_CommonTipsPopup.WBP_CommonTipsPopup_C:WidgetTree.TextTitle.Text
+msgctxt ",398F21B040F7266D00B418952943EF63"
+msgid "退出游戏"
+msgstr "Exit Game"
+
+#. Key:	40C7EE4040187DB535723CAD7B0FCE11
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(4).QualityText
+#: /SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(4).QualityText
+msgctxt ",40C7EE4040187DB535723CAD7B0FCE11"
+msgid "影视级"
+msgstr "Epic"
+
+#. Key:	43236C1A46761E398B66EA8C8929CAFA
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(0).QualityText
+#: /SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(0).QualityText
+msgctxt ",43236C1A46761E398B66EA8C8929CAFA"
+msgid "低"
+msgstr "Low"
+
+#. Key:	47117E784BFF550EC7C0068C85654982
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.BackText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.BackText.Text
+msgctxt ",47117E784BFF550EC7C0068C85654982"
+msgid "后退        "
+msgstr "Back"
+
+#. Key:	471E02764612E3666F63FD86B4371743
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.VSyncText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.VSyncText.Text
+msgctxt ",471E02764612E3666F63FD86B4371743"
+msgid "垂直同步"
+msgstr "Vertical Synchronization"
+
+#. Key:	5F4EDF1D4AD04A19D1769C829A803DB0
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(3).QualityText
+#: /SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(3).QualityText
+msgctxt ",5F4EDF1D4AD04A19D1769C829A803DB0"
+msgid "最高"
+msgstr "Highest"
+
+#. Key:	665EEB4D4411303FF098EEA9759E9512
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GlobalIlluminationText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GlobalIlluminationText.Text
+msgctxt ",665EEB4D4411303FF098EEA9759E9512"
+msgid "全局光照质量"
+msgstr "Game related settings"
+
+#. Key:	6A8E5DCE4CAFECE3D9EADC8B773B533D
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ForwardText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ForwardText.Text
+msgctxt ",6A8E5DCE4CAFECE3D9EADC8B773B533D"
+msgid "前进       "
+msgstr "Forward"
+
+#. Key:	6E8BDED946906AA59D7AE59ACF6A7891
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ShadowQualityText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ShadowQualityText.Text
+msgctxt ",6E8BDED946906AA59D7AE59ACF6A7891"
+msgid "阴影质量"
+msgstr "Shaodw Qulity"
+
+#. Key:	72DA303D45430652512CB3B1B89FA828
+#. SourceLocation:	/SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.StartText.Text
+#: /SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.StartText.Text
+msgctxt ",72DA303D45430652512CB3B1B89FA828"
+msgid "新的旅程"
+msgstr "New Journey"
+
+#. Key:	73BAEC154265CBD42CAC80994EB7B578
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.WindowModeText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.WindowModeText.Text
+msgctxt ",73BAEC154265CBD42CAC80994EB7B578"
+msgid "游戏窗口模式"
+msgstr "Game Window Mode"
+
+#. Key:	74F8F8D1408A3DC0A921C8A52F05119E
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.EffectVolumeText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.EffectVolumeText.Text
+msgctxt ",74F8F8D1408A3DC0A921C8A52F05119E"
+msgid "音效音量"
+msgstr "Sound Effect Volume"
+
+#. Key:	7DC1085C4A06251616D73AB8ED38D697
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.PostProcessingText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.PostProcessingText.Text
+msgctxt ",7DC1085C4A06251616D73AB8ED38D697"
+msgid "后期处理"
+msgstr "Post processing"
+
+#. Key:	7E2715AE471D2AB60A555FB8DC7AC1A6
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.BackMainMenuText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.BackMainMenuText.Text
+msgctxt ",7E2715AE471D2AB60A555FB8DC7AC1A6"
+msgid "返回主界面"
+msgstr "Return MainMenu"
+
+#. Key:	8298B5374908AC651B129483D88050D2
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.FoliageQualityText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.FoliageQualityText.Text
+msgctxt ",8298B5374908AC651B129483D88050D2"
+msgid "植物质量"
+msgstr "FoliageQuality"
+
+#. Key:	8B5EE58A4E19E74190505E9FBC6E58F1
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.AntiAliasingText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.AntiAliasingText.Text
+msgctxt ",8B5EE58A4E19E74190505E9FBC6E58F1"
+msgid "抗锯齿"
+msgstr "Anti-Aliasing"
+
+#. Key:	8C0DB16F4773CD2279092F89B045AB19
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.InputSettingText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.InputSettingText.Text
+msgctxt ",8C0DB16F4773CD2279092F89B045AB19"
+msgid "输入设置"
+msgstr "Input Settings"
+
+#. Key:	90AAA11A4294C9578D6E84961AC5FE39
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.FramesLimitText(4).FramesLimitText
+#: /SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.FramesLimitText(4).FramesLimitText
+msgctxt ",90AAA11A4294C9578D6E84961AC5FE39"
+msgid "无限制"
+msgstr "Unlimited"
+
+#. Key:	9406EA364F90616C1D2C8983D516BFC6
+#. SourceLocation:	/SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.ContinueText.Text
+#: /SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.ContinueText.Text
+msgctxt ",9406EA364F90616C1D2C8983D516BFC6"
+msgid "继续"
+msgstr "Continue"
+
+#. Key:	98ED48594C42908B843F528C8C671DBE
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GlobalSettingText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GlobalSettingText.Text
+msgctxt ",98ED48594C42908B843F528C8C671DBE"
+msgid "图像快速设置"
+msgstr "Quick graphic settings"
+
+#. Key:	9A15C96D41AF9A21A5A077A8CE14FAF1
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.SoundSettingTitleText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.SoundSettingTitleText.Text
+msgctxt ",9A15C96D41AF9A21A5A077A8CE14FAF1"
+msgid "游戏声音设置"
+msgstr "Game Sound Settings"
+
+#. Key:	9A4EF2034A90D3E63F1DFE88AA39F07D
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.MotionBlurText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.MotionBlurText.Text
+msgctxt ",9A4EF2034A90D3E63F1DFE88AA39F07D"
+msgid "动态模糊"
+msgstr "Motion Blur"
+
+#. Key:	9D7340A344ED5D56797979AEC1C3A162
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ResolutionRatioText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.ResolutionRatioText.Text
+msgctxt ",9D7340A344ED5D56797979AEC1C3A162"
+msgid "游戏分辨率"
+msgstr "Resolution"
+
+#. Key:	A31CEDAA42E2227D3CF57B9DE7BE422A
+#. SourceLocation:	/SimpleSettings/Widget/WBP_RebindInputAction.WBP_RebindInputAction_C:WidgetTree.InputKey.KeySelectionText
+#: /SimpleSettings/Widget/WBP_RebindInputAction.WBP_RebindInputAction_C:WidgetTree.InputKey.KeySelectionText
+msgctxt ",A31CEDAA42E2227D3CF57B9DE7BE422A"
+msgid "输入按键"
+msgstr "Input Key"
+
+#. Key:	A3A296E84934A1E213AC22BF5FD8C9FB
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GameSettingConfirmText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GameSettingConfirmText.Text
+msgctxt ",A3A296E84934A1E213AC22BF5FD8C9FB"
+msgid "确认"
+msgstr "Confirm"
+
+#. Key:	A717D2A04C9548C3F6C20192EAA7C347
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.LeftText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.LeftText.Text
+msgctxt ",A717D2A04C9548C3F6C20192EAA7C347"
+msgid "左移动    "
+msgstr "Left"
+
+#. Key:	AE0DFAC040A1EEA26DF07AA152611D10
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(5).QualityText
+#: /SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(5).QualityText
+msgctxt ",AE0DFAC040A1EEA26DF07AA152611D10"
+msgid "自定义"
+msgstr "Custom"
+
+#. Key:	B3C90B6A4AC27D4581EE7AB1930A275A
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.DisplaySettingTitleText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.DisplaySettingTitleText.Text
+msgctxt ",B3C90B6A4AC27D4581EE7AB1930A275A"
+msgid "游戏画面设置"
+msgstr "Game screen settings"
+
+#. Key:	BA227A814DF50FC51D1ECC8628AAB343
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GameSettingText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.GameSettingText.Text
+msgctxt ",BA227A814DF50FC51D1ECC8628AAB343"
+msgid "游戏设置"
+msgstr "Game Settings"
+
+#. Key:	BBADAC5E48755A8675E8B39C51B90776
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.BackgroundMusicText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.BackgroundMusicText.Text
+msgctxt ",BBADAC5E48755A8675E8B39C51B90776"
+msgid "背景音乐音量"
+msgstr "Background Music Volume"
+
+#. Key:	BCF4A2E747540AAB05C77FB422D2D97C
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(2).QualityText
+#: /SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(2).QualityText
+msgctxt ",BCF4A2E747540AAB05C77FB422D2D97C"
+msgid "高"
+msgstr "High"
+
+#. Key:	C3A1BB294A74DF8C5CB20FB7E534736C
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.TextRestoreDefault.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.TextRestoreDefault.Text
+msgctxt ",C3A1BB294A74DF8C5CB20FB7E534736C"
+msgid "恢复默认按键"
+msgstr "Restore Default InputKey"
+
+#. Key:	D33DFDC346467623943D118FEF73CFB8
+#. SourceLocation:	/SimpleSettings/Widget/WBP_CommonTipsPopup.WBP_CommonTipsPopup_C:WidgetTree.TextCancle.Text
+#: /SimpleSettings/Widget/WBP_CommonTipsPopup.WBP_CommonTipsPopup_C:WidgetTree.TextCancle.Text
+msgctxt ",D33DFDC346467623943D118FEF73CFB8"
+msgid "取消"
+msgstr "Cancel"
+
+#. Key:	D3757B7D4A55B3D8A29C5B888FE76B1A
+#. SourceLocation:	/SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.SettingText.Text
+#: /SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.SettingText.Text
+msgctxt ",D3757B7D4A55B3D8A29C5B888FE76B1A"
+msgid "游戏设置"
+msgstr "Game Settings"
+
+#. Key:	D8E4BBB940D1EE19D99701ABCA3DD629
+#. SourceLocation:	/SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.ExitText.Text
+#: /SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.ExitText.Text
+msgctxt ",D8E4BBB940D1EE19D99701ABCA3DD629"
+msgid "离开游戏"
+msgstr "Exit Game"
+
+#. Key:	DA0105964E3C64EAACFE459CDC3F9BE6
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.TotalVolumeText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.TotalVolumeText.Text
+msgctxt ",DA0105964E3C64EAACFE459CDC3F9BE6"
+msgid "总音量"
+msgstr "Master Volume"
+
+#. Key:	E0A711B345C842DD4CDF5AB5CFFFE67C
+#. SourceLocation:	/SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.ListText.Text
+#: /SimpleSettings/Widget/WBP_MainMenu.WBP_MainMenu_C:WidgetTree.ListText.Text
+msgctxt ",E0A711B345C842DD4CDF5AB5CFFFE67C"
+msgid "制作人员名单"
+msgstr "Credits"
+
+#. Key:	EE31D97349A305068A303DBC8342E3F3
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.RestoreDefaultText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.RestoreDefaultText.Text
+msgctxt ",EE31D97349A305068A303DBC8342E3F3"
+msgid "恢复默认"
+msgstr "Restore Default"
+
+#. Key:	F816BABC4BF3AAD1D98C018E275FA666
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.VoiceVolumeText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.VoiceVolumeText.Text
+msgctxt ",F816BABC4BF3AAD1D98C018E275FA666"
+msgid "语音音量"
+msgstr "Voice Volume"
+
+#. Key:	FEA65E9342EEF47F88518684C165E776
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.SelectLanguageText.Text
+#: /SimpleSettings/Widget/WBP_GameSettings.WBP_GameSettings_C:WidgetTree.SelectLanguageText.Text
+msgctxt ",FEA65E9342EEF47F88518684C165E776"
+msgid "语言选择"
+msgstr "Language Selection"
+
+#. Key:	FEAF04244400627C039375929D2FAA26
+#. SourceLocation:	/SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(1).QualityText
+#: /SimpleSettings/Widget/WBP_GameSettings.Default__WBP_GameSettings_C.QualityText(1).QualityText
+msgctxt ",FEAF04244400627C039375929D2FAA26"
+msgid "中"
+msgstr "Medium"
+

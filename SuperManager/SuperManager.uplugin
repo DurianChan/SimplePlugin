@@ -1,0 +1,23 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "SuperManager",
+	"Description": "Helps users to quickly manager assets and actors",
+	"Category": "SuperManager",
+	"CreatedBy": "DurianChan",
+	"CreatedByURL": "",
+	"DocsURL": "",
+	"MarketplaceURL": "",
+	"SupportURL": "",
+	"EngineVersion": "5.2.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "SuperManager",
+			"Type": "Editor",
+			"LoadingPhase": "PreDefault"
+		}
+	]
+}
