@@ -1,2 +1,2 @@
-# AssetManagerPlugin
-UE5 Plugin Extend learning. Create By UE.5.2
+# Simple Plugin
+Custom UE5 Plugin. Create By UE.5.2
