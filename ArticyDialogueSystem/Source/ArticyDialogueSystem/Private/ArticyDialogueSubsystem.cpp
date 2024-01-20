@@ -1,37 +1,35 @@
 #include "ArticyDialogueSubsystem.h"
+#include "ArticyAsset.h"
+#include "ArticyFunctionLibrary.h"
+#include "ArticyEntity.h"
 #include "ArticyFlowPlayer.h"
-#include "DialogueWidget.h"
+#include "ArticyDialogueWidget.h"
 #include "Interfaces/ArticyNode.h"
 #include "Interfaces/ArticyObjectWithDisplayName.h"
+#include "Interfaces/ArticyObjectWithPreviewImage.h"
 #include "Interfaces/ArticyObjectWithSpeaker.h"
 #include "Interfaces/ArticyObjectWithText.h"
 
-void UArticyDialogueSubsystem::Initialize(FSubsystemCollectionBase& Collection)
+void UArticyDialogueSubsystem::InitializeArticyDialogueSystem(APlayerController* OwnerPlayerController, UArticyFlowPlayer* OwnerArticyFlowPlayer, UArticyDialogueWidget* ArticyDialogueWidget)
 {
-	Super::Initialize(Collection);
+	if(ArticyFlowPlayer)
+	{
+		ArticyFlowPlayer->OnPlayerPaused.Clear();
+		ArticyFlowPlayer->OnBranchesUpdated.Clear();
+		ArticyFlowPlayer = nullptr;
+	}
+	if(DialogueWidget)
+	{
+		DialogueWidget->RemoveFromParent();
+		DialogueWidget = nullptr;
+	}
 	
-}
-
-void UArticyDialogueSubsystem::InitializeArticyDialogueSystem(APlayerController* PlayerController, UArticyFlowPlayer* ArticyFlowPlayer, UDialogueWidget* DialogueWidget)
-{
-	if(OwnerArticyFlowPlayer)
-	{
-		OwnerArticyFlowPlayer->OnPlayerPaused.Clear();
-		OwnerArticyFlowPlayer->OnBranchesUpdated.Clear();
-		OwnerArticyFlowPlayer = nullptr;
-	}
-	if(OwnerDialogueWidget)
-	{
-		OwnerDialogueWidget->RemoveFromParent();
-		OwnerDialogueWidget = nullptr;
-	}
-
-	OwnerPlayerController = PlayerController;
-	OwnerArticyFlowPlayer = ArticyFlowPlayer;
-	OwnerDialogueWidget = DialogueWidget;
-
-	OwnerArticyFlowPlayer->OnPlayerPaused.AddDynamic(this, &UArticyDialogueSubsystem::OnPlayerPause);
-	OwnerArticyFlowPlayer->OnBranchesUpdated.AddDynamic(this, &UArticyDialogueSubsystem::OnBranchesUpdated);
+	PlayerController = OwnerPlayerController;
+	ArticyFlowPlayer = OwnerArticyFlowPlayer;
+	DialogueWidget = ArticyDialogueWidget;
+	
+	ArticyFlowPlayer->OnPlayerPaused.AddDynamic(this, &UArticyDialogueSubsystem::OnPlayerPause);
+	ArticyFlowPlayer->OnBranchesUpdated.AddDynamic(this, &UArticyDialogueSubsystem::OnBranchesUpdated);
 }
 
 void UArticyDialogueSubsystem::OnPlayerPause(TScriptInterface<IArticyFlowObject> PausedOn)
@@ -44,7 +42,7 @@ void UArticyDialogueSubsystem::OnPlayerPause(TScriptInterface<IArticyFlowObject>
 		case EArticyPausableType::FlowFragment:
 			break;
 		case EArticyPausableType::Dialogue:
-			OwnerArticyFlowPlayer->Play();
+			ArticyFlowPlayer->Play();
 			break;
 		case EArticyPausableType::DialogueFragment:
 			OnDialogueFragment(PausedOn);
@@ -54,7 +52,7 @@ void UArticyDialogueSubsystem::OnPlayerPause(TScriptInterface<IArticyFlowObject>
 		case EArticyPausableType::Jump:
 			break;
 		case EArticyPausableType::Condition:
-			break;
+			break;	
 		case EArticyPausableType::Instruction:
 			break;
 		case EArticyPausableType::Pin:
@@ -66,69 +64,97 @@ void UArticyDialogueSubsystem::OnPlayerPause(TScriptInterface<IArticyFlowObject>
 
 void UArticyDialogueSubsystem::OnDialogueFragment(TScriptInterface<IArticyFlowObject> PausedOn) const
 {
-	if(OwnerDialogueWidget)
+	if(DialogueWidget)
 	{
-		//设置对话者名字
-		IArticyObjectWithSpeaker* ArticySpeaker = Cast<IArticyObjectWithSpeaker>(PausedOn.GetInterface());
-		if(ArticySpeaker)
-		{
-			UArticyObject* Speaker = ArticySpeaker->GetSpeaker();
-			IArticyObjectWithDisplayName* ArticyDisplayName = Cast<IArticyObjectWithDisplayName>(Speaker);
-			if(ArticyDisplayName)
-			{
-				const FText SpeakerName = ArticyDisplayName->GetDisplayName();
-				OwnerDialogueWidget->SetSpeakerName(SpeakerName);
-			}
-		}
-				
-		//设置对话内容
-		IArticyObjectWithText* ArticyText = Cast<IArticyObjectWithText>(PausedOn.GetInterface());
-		if(ArticyText)
-		{
-			const FText DialogueContent = ArticyText->GetText();
-			OwnerDialogueWidget->SetDialogueText(DialogueContent, bUseTyping, TypingSpeed);
-		}
+		DialogueWidget->HandleDialogueFragment(PausedOn);
 	}
 }
 
 void UArticyDialogueSubsystem::OnBranchesUpdated(const TArray<FArticyBranch>& AvailableBranches)
 {
-	if(OwnerDialogueWidget)
+	if(DialogueWidget)
 	{
-		OwnerDialogueWidget->ClearBranchesButton();
-		
-		for (FArticyBranch Branch : AvailableBranches)
-		{
-			OwnerDialogueWidget->AddBranchesButton(Branch);
-		}
-		
-		OwnerDialogueWidget->SetEndDialogueFlag();
+		DialogueWidget->HandleBranchesUpdated(AvailableBranches);
 	}
 }
 
 void UArticyDialogueSubsystem::StartArticyDialogue(FArticyRef DialogueData)
 {
 	bPlayingDialogue = true;
-	OwnerPlayerController->SetShowMouseCursor(true);
+	PlayerController->SetShowMouseCursor(true);
 	const FInputModeUIOnly Data;
-	OwnerPlayerController->SetInputMode(Data);
-	OwnerDialogueWidget->ShowDialogueContent(true);
-	OwnerArticyFlowPlayer->SetStartNode(DialogueData);
+	PlayerController->SetInputMode(Data);
+	ArticyFlowPlayer->SetStartNode(DialogueData);
+
+	if(OnStartArticyDialogue.IsBound())
+		OnStartArticyDialogue.Broadcast();
 }
 
 void UArticyDialogueSubsystem::EndArticyDialogue()
 {
 	bPlayingDialogue = false;
-	OwnerPlayerController->SetShowMouseCursor(false);
+	PlayerController->SetShowMouseCursor(false);
 	const FInputModeGameOnly Data;
-	OwnerPlayerController->SetInputMode(Data);
-	OwnerDialogueWidget->ShowDialogueContent(false);
+	PlayerController->SetInputMode(Data);
 	//确保在最后一句对话设置的语句变量能够执行
-	OwnerArticyFlowPlayer->FinishCurrentPausedObject();
+	ArticyFlowPlayer->FinishCurrentPausedObject();
+
+	if(OnEndArticyDialogue.IsBound())
+		OnEndArticyDialogue.Broadcast();
 }
 
-void UArticyDialogueSubsystem::SetDialogueDisplayMode(bool UseTyping, float TypingTextSpeed)
+FText UArticyDialogueSubsystem::GetDialogueSpeakerName(TScriptInterface<IArticyFlowObject> PausedOn) const
 {
-	bUseTyping = UseTyping;
-	TypingSpeed = TypingTextSpeed;
+	FText SpeakerName;
+	IArticyObjectWithSpeaker* ArticySpeaker = Cast<IArticyObjectWithSpeaker>(PausedOn.GetInterface());
+	if(ArticySpeaker)
+	{
+		UArticyObject* Speaker = ArticySpeaker->GetSpeaker();
+		IArticyObjectWithDisplayName* ArticyDisplayName = Cast<IArticyObjectWithDisplayName>(Speaker);
+		if(ArticyDisplayName)
+		{
+			SpeakerName = ArticyDisplayName->GetDisplayName();
+		}
+	}
+
+	return SpeakerName;
+}
+
+UTexture2D* UArticyDialogueSubsystem::GetDialogueSpeakerImage(TScriptInterface<IArticyFlowObject> PausedOn) const
+{
+	UTexture2D* SpeakerTexture = NewObject<UTexture2D>(GetTransientPackage(), UTexture2D::StaticClass());
+	IArticyObjectWithSpeaker* ArticySpeaker = Cast<IArticyObjectWithSpeaker>(PausedOn.GetInterface());
+	if(ArticySpeaker)
+	{
+		UArticyObject* Speaker = ArticySpeaker->GetSpeaker();
+		UArticyEntity* ArticyEntity = Cast<UArticyEntity>(Speaker);
+		IArticyObjectWithPreviewImage* ArticyObjectWithPreviewImage = Cast<IArticyObjectWithPreviewImage>(ArticyEntity);
+		if(ArticyObjectWithPreviewImage)
+		{
+			const UArticyPreviewImage* ArticyPreviewImage = ArticyObjectWithPreviewImage->GetPreviewImage();
+			const UWorld* World = PlayerController->GetWorld();
+			if(World)
+			{
+				UArticyObject* CurrentObject  = UArticyFunctionLibrary::ArticyId_GetObject(ArticyPreviewImage->Asset, UArticyObject::StaticClass(), World);
+				UArticyAsset* ArticyAsset = Cast<UArticyAsset>(CurrentObject);
+				if(ArticyAsset)
+				{
+					SpeakerTexture = ArticyAsset->LoadAsTexture2D();
+				}
+			}
+		}
+	}
+	return SpeakerTexture;
+}
+
+FText UArticyDialogueSubsystem::GetDialogueText(TScriptInterface<IArticyFlowObject> PausedOn) const
+{
+	FText DialogueContent;
+	IArticyObjectWithText* ArticyText = Cast<IArticyObjectWithText>(PausedOn.GetInterface());
+	if(ArticyText)
+	{
+		DialogueContent = ArticyText->GetText();
+	}
+	
+	return DialogueContent;
 }

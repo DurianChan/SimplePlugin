@@ -7,10 +7,14 @@
 #include "ArticyDialogueSubsystem.generated.h"
 
 class UArticyFlowPlayer;
-class UDialogueWidget;
+class UArticyDialogueWidget;
 class APlayerController;
 struct FArticyRef;
-class UArticySaveGame;
+class IArticyFlowObject;
+struct FArticyBranch;
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStartArticyDialogue);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndArticyDialogue);
 
 UCLASS()
 class ARTICYDIALOGUESYSTEM_API UArticyDialogueSubsystem : public UGameInstanceSubsystem
@@ -19,16 +23,20 @@ class ARTICYDIALOGUESYSTEM_API UArticyDialogueSubsystem : public UGameInstanceSu
 
 public:
 	
-	UPROPERTY(BlueprintReadWrite, Category="Dialogue")
+	UPROPERTY(BlueprintReadWrite, Category="Dialogue Data")
 	bool bPlayingDialogue;
-
-	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+	UPROPERTY(VisibleAnywhere, Category="Dialogue Data")
+	APlayerController* PlayerController;
+	UPROPERTY(VisibleAnywhere, Category="Dialogue Data")
+	UArticyFlowPlayer* ArticyFlowPlayer;
+	UPROPERTY(VisibleAnywhere, Category="Dialogue Data")
+	UArticyDialogueWidget* DialogueWidget;
 	
 	UFUNCTION(BlueprintCallable, Category="Dialogue")
-	void InitializeArticyDialogueSystem(APlayerController* PlayerController, UArticyFlowPlayer* ArticyFlowPlayer, UDialogueWidget* DialogueWidget);
-	void OnDialogueFragment(TScriptInterface<IArticyFlowObject> PausedOn) const;
+	void InitializeArticyDialogueSystem(APlayerController* OwnerPlayerController, UArticyFlowPlayer* OwnerArticyFlowPlayer, UArticyDialogueWidget* ArticyDialogueWidget);
 	UFUNCTION()
 	void OnPlayerPause(TScriptInterface<IArticyFlowObject> PausedOn);
+	void OnDialogueFragment(TScriptInterface<IArticyFlowObject> PausedOn) const;
 	UFUNCTION()
 	void OnBranchesUpdated(const TArray<FArticyBranch>& AvailableBranches);
 
@@ -36,17 +44,17 @@ public:
 	void StartArticyDialogue(FArticyRef DialogueData);
 	UFUNCTION(BlueprintCallable, Category="Dialogue")
 	void EndArticyDialogue();
+
+	UPROPERTY(BlueprintAssignable, Category="Dialogue Event")
+	FOnStartArticyDialogue OnStartArticyDialogue;
+
+	UPROPERTY(BlueprintAssignable, Category="Dialogue Event")
+	FOnEndArticyDialogue OnEndArticyDialogue;
+
 	UFUNCTION(BlueprintCallable, Category="Dialogue")
-	void SetDialogueDisplayMode(bool UseTyping, float TypingTextSpeed);
-	
-	UPROPERTY(VisibleAnywhere, Category="Dialogue")
-	APlayerController* OwnerPlayerController;
-	UPROPERTY(VisibleAnywhere, Category="Dialogue")
-	UArticyFlowPlayer* OwnerArticyFlowPlayer;
-	UPROPERTY(VisibleAnywhere, Category="Dialogue")
-	UDialogueWidget* OwnerDialogueWidget;
-	UPROPERTY(VisibleAnywhere, Category="Dialogue")
-	bool bUseTyping;
-	UPROPERTY(VisibleAnywhere, Category="Dialogue")
-	float TypingSpeed = 0.04f;
+	FText GetDialogueSpeakerName(TScriptInterface<IArticyFlowObject> PausedOn) const;
+	UFUNCTION(BlueprintCallable, Category="Dialogue")
+	UTexture2D* GetDialogueSpeakerImage(TScriptInterface<IArticyFlowObject> PausedOn) const;
+	UFUNCTION(BlueprintCallable, Category="Dialogue")
+	FText GetDialogueText(TScriptInterface<IArticyFlowObject> PausedOn) const;
 };
