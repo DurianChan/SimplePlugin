@@ -1,11 +1,11 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
-#include "ArticyDialogueWidget.h"
+#include "Blueprint/UserWidget.h"
+#include "IArticyDialogueHandle.h"
 #include "DefaultArticyDialogueWidget.generated.h"
 
+class UArticyDialogueSubsystem;
 struct FArticyBranch;
 class IArticyFlowObject;
 class UBranchesButtonWidget;
@@ -18,7 +18,7 @@ class UTextBlock;
 class UButton;
 
 UCLASS()
-class ARTICYDIALOGUESYSTEM_API UDefaultArticyDialogueWidget : public UArticyDialogueWidget
+class ARTICYDIALOGUESYSTEM_API UDefaultArticyDialogueWidget : public UUserWidget, public IIArticyDialogueHandle
 {
 	GENERATED_BODY()
 
@@ -26,6 +26,9 @@ protected:
 	virtual void NativeConstruct() override;
 	
 public:
+
+	UPROPERTY(BlueprintReadWrite, Category="SubSystem")
+	UArticyDialogueSubsystem* DialogueSubsystem;
 	
 #pragma region UI Widget
 	
@@ -55,8 +58,16 @@ public:
 
 #pragma endregion
 
-	virtual void HandleDialogueFragment(TScriptInterface<IArticyFlowObject> PausedOn) override;
-	virtual void HandleBranchesUpdated(const TArray<FArticyBranch>& AvailableBranches) override;
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category="Dialogue")
+	void HandleDialogueFragment(UObject* HandleObject);
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category="Dialogue")
+	void HandleBranchesUpdated(const TArray<FArticyBranch>& AvailableBranches);
+	UFUNCTION(BlueprintCallable, BlueprintNativeEvent, Category="Dialogue")
+	void HandleDestroyObject();
+	
+	virtual void HandleDialogueFragment_Implementation(UObject* HandleObject) override;
+	virtual void HandleBranchesUpdated_Implementation(const TArray<FArticyBranch>& AvailableBranches) override;
+	virtual void HandleDestroyObject_Implementation() override;
 
 	/*由于声音资源要从DialogueFragment的模板中获取，而模板类由Articy插件生成
 	如果模板不固定，则从蓝图中实现

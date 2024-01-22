@@ -3,14 +3,14 @@
 #include "ArticyFunctionLibrary.h"
 #include "ArticyEntity.h"
 #include "ArticyFlowPlayer.h"
-#include "ArticyDialogueWidget.h"
+#include "IArticyDialogueHandle.h"
 #include "Interfaces/ArticyNode.h"
 #include "Interfaces/ArticyObjectWithDisplayName.h"
 #include "Interfaces/ArticyObjectWithPreviewImage.h"
 #include "Interfaces/ArticyObjectWithSpeaker.h"
 #include "Interfaces/ArticyObjectWithText.h"
 
-void UArticyDialogueSubsystem::InitializeArticyDialogueSystem(APlayerController* OwnerPlayerController, UArticyFlowPlayer* OwnerArticyFlowPlayer, UArticyDialogueWidget* ArticyDialogueWidget)
+void UArticyDialogueSubsystem::InitializeArticyDialogueSystem(APlayerController* OwnerPlayerController, UArticyFlowPlayer* OwnerArticyFlowPlayer, TScriptInterface<IIArticyDialogueHandle> ArticyDialogueHandleWidget)
 {
 	if(ArticyFlowPlayer)
 	{
@@ -18,15 +18,15 @@ void UArticyDialogueSubsystem::InitializeArticyDialogueSystem(APlayerController*
 		ArticyFlowPlayer->OnBranchesUpdated.Clear();
 		ArticyFlowPlayer = nullptr;
 	}
-	if(DialogueWidget)
+	if(DialogueHandleWidget)
 	{
-		DialogueWidget->RemoveFromParent();
-		DialogueWidget = nullptr;
+		DialogueHandleWidget->Execute_HandleDestroyObject(DialogueHandleWidget.GetObject());
+		DialogueHandleWidget = nullptr;
 	}
 	
 	PlayerController = OwnerPlayerController;
 	ArticyFlowPlayer = OwnerArticyFlowPlayer;
-	DialogueWidget = ArticyDialogueWidget;
+	DialogueHandleWidget = ArticyDialogueHandleWidget;
 	
 	ArticyFlowPlayer->OnPlayerPaused.AddDynamic(this, &UArticyDialogueSubsystem::OnPlayerPause);
 	ArticyFlowPlayer->OnBranchesUpdated.AddDynamic(this, &UArticyDialogueSubsystem::OnBranchesUpdated);
@@ -64,17 +64,21 @@ void UArticyDialogueSubsystem::OnPlayerPause(TScriptInterface<IArticyFlowObject>
 
 void UArticyDialogueSubsystem::OnDialogueFragment(TScriptInterface<IArticyFlowObject> PausedOn) const
 {
-	if(DialogueWidget)
+	if(DialogueHandleWidget && PlayerController)
 	{
-		DialogueWidget->HandleDialogueFragment(PausedOn);
+		UObject* Object = Cast<UObject>(PausedOn.GetInterface());
+		if(Object)
+		{
+			DialogueHandleWidget->Execute_HandleDialogueFragment(DialogueHandleWidget.GetObject(), Object);
+		}
 	}
 }
 
 void UArticyDialogueSubsystem::OnBranchesUpdated(const TArray<FArticyBranch>& AvailableBranches)
 {
-	if(DialogueWidget)
+	if(DialogueHandleWidget && PlayerController)
 	{
-		DialogueWidget->HandleBranchesUpdated(AvailableBranches);
+		DialogueHandleWidget->Execute_HandleBranchesUpdated(DialogueHandleWidget.GetObject(), AvailableBranches);
 	}
 }
 

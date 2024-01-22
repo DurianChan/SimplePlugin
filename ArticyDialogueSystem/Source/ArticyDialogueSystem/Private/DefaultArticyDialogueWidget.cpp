@@ -9,10 +9,17 @@
 #include "Components/VerticalBox.h"
 #include "Interfaces/ArticyObjectWithMenuText.h"
 #include "TimerManager.h"
+#include "Interfaces/ArticyFlowObject.h"
 
 void UDefaultArticyDialogueWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
+
+	const UGameInstance* GameInstance = GetGameInstance();
+	if(GameInstance)
+	{
+		DialogueSubsystem = GameInstance->GetSubsystem<UArticyDialogueSubsystem>();
+	}
 
 	DialogueSubsystem->OnStartArticyDialogue.AddDynamic(this, &UDefaultArticyDialogueWidget::OnStartDialogue);
 	DialogueSubsystem->OnEndArticyDialogue.AddDynamic(this, &UDefaultArticyDialogueWidget::OnEndDialogue);
@@ -22,8 +29,10 @@ void UDefaultArticyDialogueWidget::NativeConstruct()
 	ContinueButton->SetVisibility(ESlateVisibility::Collapsed);
 }
 
-void UDefaultArticyDialogueWidget::HandleDialogueFragment(TScriptInterface<IArticyFlowObject> PausedOn)
+void UDefaultArticyDialogueWidget::HandleDialogueFragment_Implementation(UObject* HandleObject)
 {
+	const TScriptInterface<IArticyFlowObject> PausedOn(HandleObject);
+	
 	//设置对话者图片
 	UTexture2D* Image = DialogueSubsystem->GetDialogueSpeakerImage(PausedOn);
 	if(Image)
@@ -100,7 +109,7 @@ void UDefaultArticyDialogueWidget::OnTypingTimerTick()
 	}
 }
 
-void UDefaultArticyDialogueWidget::HandleBranchesUpdated(const TArray<FArticyBranch>& AvailableBranches)
+void UDefaultArticyDialogueWidget::HandleBranchesUpdated_Implementation(const TArray<FArticyBranch>& AvailableBranches)
 {
 	VerticalBranches->ClearChildren();
 
@@ -175,4 +184,9 @@ void UDefaultArticyDialogueWidget::OnStartDialogue()
 void UDefaultArticyDialogueWidget::OnEndDialogue()
 {
 	DialogueRoot->SetVisibility(ESlateVisibility::Collapsed);
+}
+
+void UDefaultArticyDialogueWidget::HandleDestroyObject_Implementation()
+{
+	this->RemoveFromParent();
 }

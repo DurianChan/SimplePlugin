@@ -12,6 +12,7 @@ class APlayerController;
 struct FArticyRef;
 class IArticyFlowObject;
 struct FArticyBranch;
+class IIArticyDialogueHandle;
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnStartArticyDialogue);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndArticyDialogue);
@@ -30,10 +31,10 @@ public:
 	UPROPERTY(VisibleAnywhere, Category="Dialogue Data")
 	UArticyFlowPlayer* ArticyFlowPlayer;
 	UPROPERTY(VisibleAnywhere, Category="Dialogue Data")
-	UArticyDialogueWidget* DialogueWidget;
+	TScriptInterface<IIArticyDialogueHandle> DialogueHandleWidget;
 	
 	UFUNCTION(BlueprintCallable, Category="Dialogue")
-	void InitializeArticyDialogueSystem(APlayerController* OwnerPlayerController, UArticyFlowPlayer* OwnerArticyFlowPlayer, UArticyDialogueWidget* ArticyDialogueWidget);
+	void InitializeArticyDialogueSystem(APlayerController* OwnerPlayerController, UArticyFlowPlayer* OwnerArticyFlowPlayer, TScriptInterface<IIArticyDialogueHandle> ArticyDialogueHandleWidget);
 	UFUNCTION()
 	void OnPlayerPause(TScriptInterface<IArticyFlowObject> PausedOn);
 	void OnDialogueFragment(TScriptInterface<IArticyFlowObject> PausedOn) const;
